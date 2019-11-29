@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        onload = function () {
+            test_1();
+        }
+
+        function test_1() {
+            console.log('aaaa');
+
+            // process.nextTick(() => {
+            //     console.log("nextTick_1");
+            //     process.nextTick(() => {
+            //         console.log("nextTick_2")
+            //         process.nextTick(() => {
+            //             console.log("nextTick_3")
+            //         });
+            //         setTimeout(() => {
+            //             console.log("setTimeout_2")
+            //         }, 0);
+            //     k});
+            // });
+
+            Promise.resolve().then(() => {
+                console.log("promise_1");
+                Promise.resolve().then( () => {
+                    
+                })
+            });
+
+            setTimeout(() => {
+                console.log("setTimeout_1");
+            }, 1000)
+
+
+            console.log("ffff");
+        }
+    </script>
+</body>
+</html>
